@@ -1,6 +1,20 @@
-import React from "react";
+import { createContext, useContext, useState } from "react";
 
-export const DataContext = React.createContext({
-  weather: [],
-  setWeather: () => {},
-});
+const Context  = createContext();
+
+const initialState = {
+  weather: {},
+};
+
+const DataContext = ({ children }) => {
+  const [weather, setWeather] = useState(initialState);
+
+  return (
+    <Context.Provider value={[weather, setWeather]}>
+      {children}
+    </Context.Provider>
+  );
+};
+
+export default DataContext ;
+export const useStateContext = () => useContext(Context );

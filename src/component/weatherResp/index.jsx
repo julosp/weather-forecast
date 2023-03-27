@@ -1,12 +1,8 @@
-import React, { useContext } from "react";
-import { DataContext } from "../../DataContext";
+import React from "react";
+import { useStateContext } from "../../DataContext";
 
-function WeatherResp() {
-  return (
-    <div>
-      <p>nononon</p>
-    </div>
-  );
-}
-
-export default WeatherResp;
+export const WeatherResp = () => {
+  const [weather, setWeather] = useStateContext();
+  console.log(weather);
+  return <div>index</div>;
+};

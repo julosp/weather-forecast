@@ -1,17 +1,15 @@
-import { useState } from "react";
 import "./App.css";
 import UserInput from "./component/userInput";
-import WeatherResp from "./component/weatherResp";
-import { DataContext } from "./DataContext";
+import DataContext from "./DataContext";
+import { WeatherResp } from "./component/weatherResp";
 
 function App() {
-  const [weather, setWeather] = useState([]);
   return (
     <div className="App">
-      <DataContext.Provider value={(weather, setWeather)}>
+      <DataContext>
         <UserInput />
         <WeatherResp />
-      </DataContext.Provider>
+      </DataContext>
     </div>
   );
 }
